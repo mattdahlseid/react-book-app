@@ -1,0 +1,112 @@
+STATE WITH TRYING TO UPDATE maturityRating
+
+import React from 'react';
+
+class NotesAndQuotes extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.removeNote = this.removeNote.bind(this);
+
+        this.state = {
+            show: false, 
+            bookNote: '',
+            myNotes: [...this.props.book.maturityRating]
+        }
+    }
+
+    showModal = () => {
+        this.setState({ show: true });
+    }
+
+    hideModal = () => {
+        this.setState({ show: false });
+    }
+
+    updateNote = (bookNote) => {
+        this.setState({ bookNote });
+    }
+
+    addNote = () => {
+        const { bookNote } = this.state;
+        return new Promise (() => {
+        if (bookNote.length > 0) {
+            this.setState({
+                myNotes: [...this.state.myNotes, bookNote]
+            })
+            this.setState({
+                bookNote: ''
+            }) 
+        }
+    }, 1).then(
+        this.props.notesFunc(this.props.book, this.state.myNotes)
+    )
+    }
+
+    removeNote(note) {
+        const newNotes = this.state.myNotes.filter(aNote => {
+            return aNote !== note;
+        })
+        this.setState({
+            myNotes: [...newNotes]
+        })
+    }
+
+    render() {
+
+
+    const { book } = this.props;
+
+    return (
+        <main>
+            <Modal show={this.state.show} handleClose= {this.hideModal}  book={book} takeNote={this.takeNote} updateInputValue={this.updateInputValue} bookNote={this.state.bookNote} updateNote={this.updateNote} myNotes={this.state.myNotes} addNote={this.addNote} removeNote={this.removeNote} myFunc={this.props.myFunc} myNotes={this.state.myNotes} notesFunc={this.props.notesFunc}>
+            </Modal>
+            <button type="button" onClick={this.showModal}className="notes-icon" title="Take Notes">✎</button>
+        </main>
+        )
+        }
+    }
+
+const Modal = ({ handleClose, show, book, updateNote, bookNote, myNotes, addNote, removeNote, children, myFunc, notesFunc }) => {
+  const showHideClassName = show ? 'modal display-block' : 'modal display-none';
+
+  return (
+   
+    <div className={showHideClassName}>
+      <section className="notes-window">
+        <div className="notes-book-title">{book.title}</div>
+        <div className="notes-window-title">Notes &amp; Quotes</div>
+        <div className="notes-display">
+            <ul>
+               {
+                   myNotes.map((note, index) => {
+                       return (
+                           <li key={index}>
+                           {note}
+                           <button type="button" onClick={() => removeNote(note)} className="removeButton" title="Delete Note">x</button>
+                           </li>
+                       )
+                   })
+               }
+            </ul>
+        </div>
+        <input className="notes-input" placeholder="Type New Note" value={bookNote} onChange={(event) => updateNote(event.target.value)}></input>
+        {children}
+        <button type="button" onClick={() => {addNote(); console.log(book.shelf)}}>
+        SAVE NOTE
+        </button>
+        <button
+          onClick={handleClose}
+        >
+          CLOSE
+        </button>
+      </section>
+    </div>
+  );
+};
+
+export default NotesAndQuotes
+
+/// Modal acknowledgment  https://codepen.io/alligatorio/pen/aYzMKL?editors=0110
+
+// acknowledge ihatetomatoes for notepad
