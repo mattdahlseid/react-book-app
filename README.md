@@ -1,92 +1,31 @@
-# MyReads Project
+## BookTrack App Project Overview
+This project was created to fulfill a requirement for [Udacity's Front End Developer Nanodegree program](https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001). Students were provided [starter code](https://github.com/udacity/reactnd-project-myreads-starter) that contains a static example of the CSS and HTML markup for the project without any React code. They were required to use React to make the app functional. 
 
-This is the starter template for the final assessment project for Udacity's React Fundamentals course. The goal of this template is to save you time by providing a static example of the CSS and HTML markup that may be used, but without any of the React code that is needed to complete the project. If you choose to start with this template, your job will be to add interactivity to the app by refactoring the static code in this template.
+The BookTrack App allows users to search for books from an API and store the books on shelves marked “Currently Reading," “Want to Read,” and “Read.” 
 
-Of course, you are free to start this project from scratch if you wish! Just be sure to use [Create React App](https://github.com/facebookincubator/create-react-app) to bootstrap the project.
+A “Notes & Quotes” component has been added to allow users to keep notes on the books they've read, though this component isn't fully functional yet due to API limitations. 
 
-## TL;DR
+<img src="https://preview.ibb.co/jOMLDe/book_app.png" alt="book_app" border="0">
+<img src="https://preview.ibb.co/cMSz6z/book_note.png" alt="book_note" border="0">
 
-To get started developing right away:
+## Getting Started
+1. [Download](https://github.com/mattdahlseid/react-book-app/archive/master.zip) or clone the [repository](https://github.com/mattdahlseid/react-book-app)
+2. Use your terminal and navigate into the the react-book-app file
+3. Run `npm install` and then `npm start` to get the app up and running in your browser
 
-* install all project dependencies with `npm install`
-* start the development server with `npm start`
+## Dependencies
+* This project uses the `react-router-dom` [package](https://www.npmjs.com/package/react-router-dom)
 
-## What You're Getting
-```bash
-├── CONTRIBUTING.md
-├── README.md - This file.
-├── SEARCH_TERMS.md # The whitelisted short collection of available search terms for you to use with your app.
-├── package.json # npm package manager file. It's unlikely that you'll need to modify this.
-├── public
-│   ├── favicon.ico # React Icon, You may change if you wish.
-│   └── index.html # DO NOT MODIFY
-└── src
-    ├── App.css # Styles for your app. Feel free to customize this as you desire.
-    ├── App.js # This is the root of your app. Contains static HTML right now.
-    ├── App.test.js # Used for testing. Provided with Create React App. Testing is encouraged, but not required.
-    ├── BooksAPI.js # A JavaScript API for the provided Udacity backend. Instructions for the methods are below.
-    ├── icons # Helpful images for your app. Use at your discretion.
-    │   ├── add.svg
-    │   ├── arrow-back.svg
-    │   └── arrow-drop-down.svg
-    ├── index.css # Global styles. You probably won't need to change anything here.
-    └── index.js # You should not need to modify this file. It is used for DOM rendering only.
-```
+## Built With
+* [create-react-app](https://www.npmjs.com/package/create-react-app)
+* [React.js](https://reactjs.org/)
+* [Starter code](https://github.com/udacity/reactnd-project-myreads-starter) from Udacity
+* [Book Lender API](https://reactnd-books-api.udacity.com) - provided by Udacity
+* HTML
+* CSS
+* JavaScript
+* Google Fonts - [Raleway](https://fonts.google.com/specimen/Raleway)
 
-Remember that good React design practice is to create new JS files for each component and use import/require statements to include them where they are needed.
-
-## Backend Server
-
-To simplify your development process, we've provided a backend server for you to develop against. The provided file [`BooksAPI.js`](src/BooksAPI.js) contains the methods you will need to perform necessary operations on the backend:
-
-* [`getAll`](#getall)
-* [`update`](#update)
-* [`search`](#search)
-
-### `getAll`
-
-Method Signature:
-
-```js
-getAll()
-```
-
-* Returns a Promise which resolves to a JSON object containing a collection of book objects.
-* This collection represents the books currently in the bookshelves in your app.
-
-### `update`
-
-Method Signature:
-
-```js
-update(book, shelf)
-```
-
-* book: `<Object>` containing at minimum an `id` attribute
-* shelf: `<String>` contains one of ["wantToRead", "currentlyReading", "read"]  
-* Returns a Promise which resolves to a JSON object containing the response data of the POST request
-
-### `search`
-
-Method Signature:
-
-```js
-search(query)
-```
-
-* query: `<String>`
-* Returns a Promise which resolves to a JSON object containing a collection of a maximum of 20 book objects.
-* These books do not know which shelf they are on. They are raw results only. You'll need to make sure that books have the correct state while on the search page.
-
-## Important
-The backend API uses a fixed set of cached search results and is limited to a particular set of search terms, which can be found in [SEARCH_TERMS.md](SEARCH_TERMS.md). That list of terms are the _only_ terms that will work with the backend, so don't be surprised if your searches for Basket Weaving or Bubble Wrap don't come back with any results.
-
-## Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). You can find more information on how to perform common tasks [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
-
-## Contributing
-
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
-
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+## Acknowledgments
+Former Udacity student [Maeva Nguyen Anh Phuong](https://github.com/maevanapcontact) has a great [YouTube walkthrough](https://www.youtube.com/watch?v=i6L2jLHV9j8) for the project that covers key concepts.   
+For the Notes & Quotes component, I reviewed this [pen](https://codepen.io/alligatorio/pen/aYzMKL?editors=0110) from Alligator.io to figure out how to create a modal in React. YouTube videos from ihatetomatoes called “[React setState Tutorial 2017 – Add items to a list](https://www.youtube.com/watch?v=Dt6eU-VCKoo)” and “[How to remove items from the state – React Tutorial 2017](https://www.youtube.com/watch?v=w_-tUnv5qXk)” were also helpful in understanding how to create the notes component.
