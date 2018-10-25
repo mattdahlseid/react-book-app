@@ -1,4 +1,9 @@
-## BookTrack App Project Overview
+# BookTrack App
+
+[View live app](https://mattdahlseid.github.io/react-book-app/)
+
+## Project Overview
+
 This project was created to fulfill a requirement for [Udacity's Front End Developer Nanodegree program](https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001). Students were provided [starter code](https://github.com/udacity/reactnd-project-myreads-starter) that contains a static example of the CSS and HTML markup for the project without any React code. They were required to use React to make the app functional. 
 
 The BookTrack App allows users to search for books from an API and store the books on shelves marked “Currently Reading," “Want to Read,” and “Read.” 
